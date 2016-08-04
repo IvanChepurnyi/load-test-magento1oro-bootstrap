@@ -1,0 +1,600 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "3310b51132b7b9330b5a92f6f97bf49e",
+    "content-hash": "fc5cf270dfb88e85f0963bed6bee4369",
+    "packages": [
+        {
+            "name": "ecomdev/magento-1-changes",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./project",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "magento-module",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Chepurnyi"
+                }
+            ],
+            "description": "Magento changes for proper project configuration"
+        },
+        {
+            "name": "eloquent/composer-config-reader",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eloquent/composer-config-reader.git",
+                "reference": "f6e72fc8a241e98e0e54657ba02df1df4f678292"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eloquent/composer-config-reader/zipball/f6e72fc8a241e98e0e54657ba02df1df4f678292",
+                "reference": "f6e72fc8a241e98e0e54657ba02df1df4f678292",
+                "shasum": ""
+            },
+            "require": {
+                "eloquent/enumeration": "^5",
+                "icecave/isolator": "^3",
+                "justinrainbow/json-schema": "^2",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "eloquent/liberator": "^2",
+                "friendsofphp/php-cs-fixer": "^1",
+                "phake/phake": "^2",
+                "phpunit/phpunit": "^4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Eloquent\\Composer\\Configuration\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                }
+            ],
+            "description": "A light-weight component for reading Composer configuration files.",
+            "homepage": "https://github.com/eloquent/composer-config-reader",
+            "keywords": [
+                "composer",
+                "configuration",
+                "parser",
+                "reader"
+            ],
+            "time": "2016-06-23 07:33:20"
+        },
+        {
+            "name": "eloquent/enumeration",
+            "version": "5.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eloquent/enumeration.git",
+                "reference": "0242859435d9b135939816858348556d3cde9e3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eloquent/enumeration/zipball/0242859435d9b135939816858348556d3cde9e3c",
+                "reference": "0242859435d9b135939816858348556d3cde9e3c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "icecave/archer": "dev-develop",
+                "phpunit/phpunit": "^4",
+                "sami/sami": "^3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Eloquent\\Enumeration\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                }
+            ],
+            "description": "An enumeration implementation for PHP.",
+            "homepage": "https://github.com/eloquent/enumeration",
+            "keywords": [
+                "class",
+                "enum",
+                "enumeration",
+                "multiton",
+                "set",
+                "type"
+            ],
+            "time": "2015-11-03 22:21:38"
+        },
+        {
+            "name": "icecave/isolator",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/IcecaveStudios/isolator.git",
+                "reference": "fdf22e670e7d10b51335083817ca0e8597c41168"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/IcecaveStudios/isolator/zipball/fdf22e670e7d10b51335083817ca0e8597c41168",
+                "reference": "fdf22e670e7d10b51335083817ca0e8597c41168",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "icecave/archer": "~1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Icecave\\Isolator\\": "src"
+                },
+                "files": [
+                    "src/register-autoloader.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "James Harris",
+                    "email": "james.harris@icecave.com.au",
+                    "homepage": "https://github.com/jmalloc"
+                }
+            ],
+            "description": "Dependency injection for global functions.",
+            "homepage": "https://github.com/IcecaveStudios/isolator",
+            "keywords": [
+                "Double",
+                "fake",
+                "mock",
+                "phpunit",
+                "stub",
+                "test",
+                "unit"
+            ],
+            "time": "2015-03-27 05:04:25"
+        },
+        {
+            "name": "inchoo/php7",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Inchoo/Inchoo_PHP7.git",
+                "reference": "5c431e01d2c2344ed68a9eac190446bfc272b6cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Inchoo/Inchoo_PHP7/zipball/5c431e01d2c2344ed68a9eac190446bfc272b6cd",
+                "reference": "5c431e01d2c2344ed68a9eac190446bfc272b6cd",
+                "shasum": ""
+            },
+            "require": {
+                "magento-hackathon/magento-composer-installer": "*"
+            },
+            "type": "magento-module",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Čurdinjaković"
+                }
+            ],
+            "description": "PHP 7 compatibility extension for Magento 1 by Inchoo",
+            "support": {
+                "source": "https://github.com/Inchoo/Inchoo_PHP7/tree/1.0.4",
+                "issues": "https://github.com/Inchoo/Inchoo_PHP7/issues"
+            },
+            "time": "2016-08-03 10:44:01"
+        },
+        {
+            "name": "justinrainbow/json-schema",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/justinrainbow/json-schema.git",
+                "reference": "ddabcf8025b0fb2d1deaba3cf973be8cb00e5a16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/ddabcf8025b0fb2d1deaba3cf973be8cb00e5a16",
+                "reference": "ddabcf8025b0fb2d1deaba3cf973be8cb00e5a16",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "json-schema/json-schema-test-suite": "1.2.0",
+                "phpdocumentor/phpdocumentor": "~2",
+                "phpunit/phpunit": "^4.8.22"
+            },
+            "bin": [
+                "bin/validate-json"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JsonSchema\\": "src/JsonSchema/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bruno Prieto Reis",
+                    "email": "bruno.p.reis@gmail.com"
+                },
+                {
+                    "name": "Justin Rainbow",
+                    "email": "justin.rainbow@gmail.com"
+                },
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch"
+                },
+                {
+                    "name": "Robert Schönthal",
+                    "email": "seroscho@googlemail.com"
+                }
+            ],
+            "description": "A library to validate a json schema.",
+            "homepage": "https://github.com/justinrainbow/json-schema",
+            "keywords": [
+                "json",
+                "schema"
+            ],
+            "time": "2016-08-02 00:40:51"
+        },
+        {
+            "name": "magecorelab/oro-ajax",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./oro-ajax",
+                "reference": "f3ea6a531a92b1645e44a2da8285ea6f9073f5da",
+                "shasum": null
+            },
+            "type": "magento-module",
+            "description": "OroAjax module, a property of MageCoreInc"
+        },
+        {
+            "name": "magento-hackathon/magento-composer-installer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Cotya/magento-composer-installer.git",
+                "reference": "9f4a0e980508fe1e76c589d39dad682431af3806"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Cotya/magento-composer-installer/zipball/9f4a0e980508fe1e76c589d39dad682431af3806",
+                "reference": "9f4a0e980508fe1e76c589d39dad682431af3806",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "~1.0",
+                "eloquent/composer-config-reader": "2.*",
+                "php": ">=5.4",
+                "symfony/console": "~2.5"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*",
+                "cotya/composer-test-framework": "dev-master",
+                "mikey179/vfsstream": "~1.4",
+                "phpunit/phpunit": "~4.3",
+                "phpunit/phpunit-mock-objects": "~2.3",
+                "squizlabs/php_codesniffer": "~2.1",
+                "symfony/process": "~2.5"
+            },
+            "suggest": {
+                "colinmollenhour/modman": "*",
+                "theseer/autoload": "~1.14"
+            },
+            "bin": [
+                "bin/magento-composer-installer.php"
+            ],
+            "type": "composer-plugin",
+            "extra": {
+                "class": "MagentoHackathon\\Composer\\Magento\\Plugin"
+            },
+            "autoload": {
+                "psr-0": {
+                    "MagentoHackathon\\Composer": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Vinai Kopp",
+                    "email": "vinai@netzarbeiter.com"
+                },
+                {
+                    "name": "Daniel Fahlke aka Flyingmana",
+                    "email": "flyingmana@googlemail.com"
+                },
+                {
+                    "name": "Jörg Weller",
+                    "email": "weller@flagbit.de"
+                },
+                {
+                    "name": "Karl Spies",
+                    "email": "karl.spies@gmx.net"
+                },
+                {
+                    "name": "Tobias Vogt",
+                    "email": "tobi@webguys.de"
+                },
+                {
+                    "name": "David Fuhr",
+                    "email": "fuhr@flagbit.de"
+                }
+            ],
+            "description": "Composer installer for Magento modules",
+            "homepage": "https://github.com/magento-hackathon/magento-composer-installer",
+            "keywords": [
+                "composer-installer",
+                "magento"
+            ],
+            "time": "2016-05-09 19:45:27"
+        },
+        {
+            "name": "phoenix/varnish",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHOENIX-MEDIA/Magento-PageCache-powered-by-Varnish.git",
+                "reference": "4afa0fff70b95a7f64827941e9151e6487919af4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHOENIX-MEDIA/Magento-PageCache-powered-by-Varnish/zipball/4afa0fff70b95a7f64827941e9151e6487919af4",
+                "reference": "4afa0fff70b95a7f64827941e9151e6487919af4",
+                "shasum": ""
+            },
+            "require": {
+                "magento-hackathon/magento-composer-installer": "*"
+            },
+            "type": "magento-module",
+            "extra": {
+                "map": [
+                    [
+                        "app/code/community/Phoenix/VarnishCache",
+                        "app/code/community/Phoenix/VarnishCache"
+                    ],
+                    [
+                        "app/design/adminhtml/default/default/layout/varnishcache.xml",
+                        "app/design/adminhtml/default/default/layout/varnishcache.xml"
+                    ],
+                    [
+                        "app/design/adminhtml/default/default/template/varnishcache",
+                        "app/design/adminhtml/default/default/template/varnishcache"
+                    ],
+                    [
+                        "app/design/frontend/base/default/layout/varnishcache.xml",
+                        "app/design/frontend/base/default/layout/varnishcache.xml"
+                    ],
+                    [
+                        "app/design/frontend/base/default/template/varnishcache",
+                        "app/design/frontend/base/default/template/varnishcache"
+                    ],
+                    [
+                        "app/etc/modules/Phoenix_VarnishCache.xml",
+                        "app/etc/modules/Phoenix_VarnishCache.xml"
+                    ],
+                    [
+                        "app/etc/varnishcache.xml",
+                        "app/etc/varnishcache.xml"
+                    ],
+                    [
+                        "app/locale/de_DE/Phoenix_VarnishCache.csv",
+                        "app/locale/de_DE/Phoenix_VarnishCache.csv"
+                    ],
+                    [
+                        "app/locale/en_US/Phoenix_VarnishCache.csv",
+                        "app/locale/en_US/Phoenix_VarnishCache.csv"
+                    ],
+                    [
+                        "app/locale/es_ES/Phoenix_VarnishCache.csv",
+                        "app/locale/es_ES/Phoenix_VarnishCache.csv"
+                    ],
+                    [
+                        "app/locale/fr_FR/Phoenix_VarnishCache.csv",
+                        "app/locale/fr_FR/Phoenix_VarnishCache.csv"
+                    ],
+                    [
+                        "app/locale/nb_NO/Phoenix_VarnishCache.csv",
+                        "app/locale/nb_NO/Phoenix_VarnishCache.csv"
+                    ]
+                ]
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "phoenix-media",
+                    "email": "info@phoenix-media.eu"
+                }
+            ],
+            "description": "Certified module to integrate Magento and Varnish that makes your eCommerce site fly.",
+            "support": {
+                "source": "https://github.com/PHOENIX-MEDIA/Magento-PageCache-powered-by-Varnish/tree/master",
+                "issues": "https://github.com/PHOENIX-MEDIA/Magento-PageCache-powered-by-Varnish/issues"
+            },
+            "time": "2016-04-20 10:22:33"
+        },
+        {
+            "name": "symfony/console",
+            "version": "2.8.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "36e62335caca8a6e909c5c5bac4a8128149911c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/36e62335caca8a6e909c5c5bac4a8128149911c9",
+                "reference": "36e62335caca8a6e909c5c5bac4a8128149911c9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/event-dispatcher": "~2.1|~3.0.0",
+                "symfony/process": "~2.1|~3.0.0"
+            },
+            "suggest": {
+                "psr/log": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Console\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-07-30 07:20:35"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "8a6bdec191138e01c92ae026e5aacb7b3e66267d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/8a6bdec191138e01c92ae026e5aacb7b3e66267d",
+                "reference": "8a6bdec191138e01c92ae026e5aacb7b3e66267d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2016-06-29 14:58:48"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

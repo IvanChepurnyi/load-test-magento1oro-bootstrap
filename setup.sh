@@ -69,6 +69,7 @@ n98-magerun install --dbHost="$MYSQLHOST" --dbUser="$MYSQLUSER" --dbPass="$MYSQL
 
 cd magento/
 
+n98-magerun config:set design/package/name rwd
 n98-magerun config:set web/unsecure/base_url http://$domain/
 n98-magerun config:set web/secure/base_url http://$domain/
 n98-magerun config:set dev/template/allow_symlink 1

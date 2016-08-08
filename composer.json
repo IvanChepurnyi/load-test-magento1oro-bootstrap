@@ -1,0 +1,40 @@
+{
+  "name": "ecomdev/magento-1-oro-performance-bootstrap",
+  "description": "Magento 1.0 performance bootstrap test",
+  "license": "MIT",
+  "require": {
+     "ecomdev/magento-1-changes": "*",
+     "magecorelab/oro-ajax": "*",
+     "phoenix/varnish": "*",
+     "inchoo/php7": "*"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/Inchoo/Inchoo_PHP7.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/PHOENIX-MEDIA/Magento-PageCache-powered-by-Varnish.git"
+    },
+    {
+      "type": "path",
+      "url": "./project"
+    },
+    {
+      "type": "path",
+      "url": "./oro-ajax"
+    }
+  ],
+  "minimum-stability":"dev",
+  "config": {
+    "optimize-autoloader": true,
+    "classmap-authoritative": true,
+    "prepend-autoloader": true,
+    "prefer-dist": true
+  },
+  "extra": {
+    "magento-root-dir": "magento",
+    "auto-append-gitignore": true
+  }
+}

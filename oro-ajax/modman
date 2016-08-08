@@ -1,0 +1,6 @@
+ajax/app/code/local/Oro/Ajax                                app/code/local/Oro/Ajax
+ajax/app/etc/modules/Oro_Ajax.xml                           app/etc/modules/Oro_Ajax.xml
+ajax/app/design/frontend/rwd/default/layout/oro/ajax.xml    app/design/frontend/rwd/default/layout/oro/ajax.xml
+ajax/app/design/frontend/rwd/default/template/oro/ajax      app/design/frontend/rwd/default/template/oro/ajax
+ajax/skin/frontend/rwd/default/css/oro/ajax.css             skin/frontend/rwd/default/css/oro/ajax.css
+ajax/skin/frontend/rwd/default/js/oro/ajax.js               skin/frontend/rwd/default/js/oro/ajax.js

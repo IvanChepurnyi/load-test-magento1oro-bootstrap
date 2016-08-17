@@ -54,33 +54,60 @@ fi
 
 echo "Importing $dbfile"
 databaseFile=$dbfile
+baseDbFile=$(basename $databaseFile)
 
-# Import database
-mysql -e "drop database if exists $database; create database $database;"
-MYSQLPASSWORD=$(awk -F "=" '/password/ {print $2}' ${HOME}/.my.cnf | sed -e 's/^[ \t]*//')
-MYSQLUSER=$(awk -F "=" '/user/ {print $2}' ${HOME}/.my.cnf | sed -e 's/^[ \t]*//')
-MYSQLHOST=$(awk -F "=" '/host/ {print $2}' ${HOME}/.my.cnf | sed -e 's/^[ \t]*//')
-gunzip < $databaseFile | mysql $database
+function cache_magento() {
+   mkdir -p $HOME/cache/$path
+   cp app/etc/local.xml $HOME/cache/$path/local.xml
+   mysqldump $database | gzip -c > $HOME/cache/$path/$baseDbFile
+}
 
-# Install magento configure it
-n98-magerun install --dbHost="$MYSQLHOST" --dbUser="$MYSQLUSER" --dbPass="$MYSQLPASSWORD" --dbName="$database" \
-    --installSampleData=yes --useDefaultConfigParams=yes --noDownload \
-    --installationFolder="magento" --baseUrl="http://$domain/" --forceUseDb
+function try_restore_from_cache() {
+   cd $dir/magento
+   if [ ! -d $HOME/cache ] 
+   then
+      setup_magento
+   elif [ -f $HOME/cache/$path/$baseDbFile -a -f $HOME/cache/$path/local.xml ]
+   then
+      cp $HOME/cache/$path/local.xml app/etc/local.xml
+      mysql -e "drop database if exists $database; create database $database;"
+      gunzip < $HOME/cache/$path/$baseDbFile | mysql $database
+      n98-magerun cache:flush
+      n98-magerun cache:enable
+   else
+      setup_magento
+      cache_magento
+   fi
+}
 
-cd magento/
+function setup_magento() {
+    # Import database
+    mysql -e "drop database if exists $database; create database $database;"
+    MYSQLPASSWORD=$(awk -F "=" '/password/ {print $2}' ${HOME}/.my.cnf | sed -e 's/^[ \t]*//')
+    MYSQLUSER=$(awk -F "=" '/user/ {print $2}' ${HOME}/.my.cnf | sed -e 's/^[ \t]*//')
+    MYSQLHOST=$(awk -F "=" '/host/ {print $2}' ${HOME}/.my.cnf | sed -e 's/^[ \t]*//')
+    gunzip < $databaseFile | mysql $database
 
-n98-magerun config:set design/package/name rwd
-n98-magerun config:set web/unsecure/base_url http://$domain/
-n98-magerun config:set web/secure/base_url http://$domain/
-n98-magerun config:set dev/template/allow_symlink 1
-n98-magerun config:set catalog/frontend/flat_catalog_category 1
-n98-magerun config:set catalog/frontend/flat_catalog_product 1
-n98-magerun config:set varnishcache/general/enabled 1
-n98-magerun config:set varnishcache/general/servers 127.0.0.1
-n98-magerun config:set varnishcache/general/port 8080
+    cd $dir
+    # Install magento configure it
+    n98-magerun install --dbHost="$MYSQLHOST" --dbUser="$MYSQLUSER" --dbPass="$MYSQLPASSWORD" --dbName="$database" \
+      --installSampleData=yes --useDefaultConfigParams=yes --noDownload \
+      --installationFolder="magento" --baseUrl="http://$domain/" --forceUseDb
 
-# Add Oro_Ajax module /ajax/ route to non cache-able
-n98-magerun config:set varnishcache/general/disable_routes "checkout
+    cd $dir/magento
+
+    n98-magerun config:set design/package/name rwd
+    n98-magerun config:set web/unsecure/base_url http://$domain/
+    n98-magerun config:set web/secure/base_url http://$domain/
+    n98-magerun config:set dev/template/allow_symlink 1
+    n98-magerun config:set catalog/frontend/flat_catalog_category 1
+    n98-magerun config:set catalog/frontend/flat_catalog_product 1
+    n98-magerun config:set varnishcache/general/enabled 1
+    n98-magerun config:set varnishcache/general/servers 127.0.0.1
+    n98-magerun config:set varnishcache/general/port 8080
+
+    # Add Oro_Ajax module /ajax/ route to non cache-able
+    n98-magerun config:set varnishcache/general/disable_routes "checkout
 customer
 moneybookers
 paypal
@@ -89,12 +116,15 @@ catalog_product_compare
 ajax
 "
 
-n98-magerun cache:flush
-n98-magerun cache:enable
+    n98-magerun cache:flush
+    n98-magerun cache:enable
 
-# We have to re-index only flat and category index, as others are up-to date during install process
-n98-magerun index:reindex catalog_product_flat
-n98-magerun index:reindex catalog_category_flat
+    # We have to re-index only flat and category index, as others are up-to date during install process
+    n98-magerun index:reindex catalog_product_flat
+    n98-magerun index:reindex catalog_category_flat
+}
+
+try_restore_from_cache
 
 # Install varnish VCL
 php shell/export-varnish-vcl.php > varnish.vcl
@@ -102,4 +132,7 @@ php shell/export-varnish-vcl.php > varnish.vcl
 varnishadm vcl.load m1orobenchmark $PWD/varnish.vcl
 varnishadm vcl.use m1orobenchmark
 
-bash $dir/config/media.sh $dir/magento $dir/config/media.set $dir/config/media
+if [[ $NO_IMAGES == "" ]]
+then
+    bash $dir/config/media.sh $dir/magento $dir/config/media.set $dir/config/media
+fi
